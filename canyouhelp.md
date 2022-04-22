@@ -1,0 +1,26 @@
+# mathhelper
+This is a Repository so I can get help on math because I really need it ;)
+#!/usr/bin/python
+
+"""
+Greatest productivity script ever created. Adds whole bunch of entries to /etc/hosts
+Need to manually delete it !:/
+"""
+
+import sys
+
+lines = open('/etc/hosts').readlines()
+lines = [line.strip() for line in lines]
+domains = ['facebook.com', 'instagram.com',
+        'news.ycombinator.com', 'twitter.com', 'wsj.com', 'seekingalpha.com',
+        'reddit.com',  'snapchat.com', 'youtube.com',
+        'finance.yahoo.com', 'livemint.com', 'hindustantimes.com', 'cnbc.com',
+        'linkedin.com', 'robinhood.com', 'nytimes.com', 'twitch.tv', 'bloomberg.com',
+        'moneycontrol.com', 'scmp.com', 'asia.nikkei.com', 'pornhub.com', 'roblox.com', 'unblocked-games.s3.amazonaws.com',
+        gamaverse.com/fnf-friday-night-funkin', 'www.drifted.com/drifting-games/drifted-games-drift-hunters']
+
+print("Blocking sites")
+
+block = ['127.0.0.1 ' + domain for domain in domains] + ['127.0.0.1 www.' + domain for domain in domains]
+open('/etc/hosts', 'a').write('\n'.join(block))
+print("Done")
